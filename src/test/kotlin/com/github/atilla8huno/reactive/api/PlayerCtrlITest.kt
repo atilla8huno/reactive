@@ -59,7 +59,7 @@ internal class PlayerCtrlITest(
             .expectHeader().contentType(MediaType.APPLICATION_JSON)
             .expectBody()
             .jsonPath("$.id").isEqualTo(1)
-            .jsonPath("$.team.id").isEqualTo(newTeam)
+            .jsonPath("$.teamId").isEqualTo(newTeam)
     }
 
     @Test

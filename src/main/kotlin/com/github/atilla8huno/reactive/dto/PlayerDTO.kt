@@ -6,7 +6,7 @@ data class PlayerDTO(
     var id: Long? = null,
     var name: String? = null,
     var number: Int? = null,
-    var team: TeamDTO? = null
+    var teamId: Long? = null
 ) {
     companion object : EntityMapper<Player, PlayerDTO> {
         override fun toEntity(dto: PlayerDTO): Player {
@@ -14,7 +14,7 @@ data class PlayerDTO(
                 id = dto.id,
                 name = dto.name!!,
                 number = dto.number,
-                teamId = dto.team?.id
+                teamId = dto.teamId
             )
         }
 
@@ -23,7 +23,7 @@ data class PlayerDTO(
                 id = entity.id,
                 name = entity.name,
                 number = entity.number,
-                team = if (entity.teamId != null) TeamDTO(id = entity.teamId) else null
+                teamId = entity.teamId
             )
         }
     }

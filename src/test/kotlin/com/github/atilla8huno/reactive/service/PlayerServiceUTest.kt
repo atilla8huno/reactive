@@ -46,7 +46,7 @@ internal class PlayerServiceUTest {
             .create(response)
             .assertNext { savedPlayer ->
                 assertThat(savedPlayer.id).isEqualTo(playerId)
-                assertThat(savedPlayer.team!!.id).isEqualTo(newTeamId)
+                assertThat(savedPlayer.teamId).isEqualTo(newTeamId)
 
                 verify { playerProvider.savePlayer(any()) }
             }
@@ -189,7 +189,7 @@ internal class PlayerServiceUTest {
         StepVerifier
             .create(response)
             .assertNext { player ->
-                assertThat(player.team!!.id).isEqualTo(teamId)
+                assertThat(player.teamId).isEqualTo(teamId)
 
                 verify { playerProvider.findByTeam(any()) }
             }
