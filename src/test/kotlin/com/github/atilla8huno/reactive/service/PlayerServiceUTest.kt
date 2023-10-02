@@ -163,7 +163,7 @@ internal class PlayerServiceUTest {
         // then
         StepVerifier
             .create(response)
-            .assertNext { player ->
+            .assertNext {
                 verify { playerProvider.findAll() }
             }
             .expectNextCount(1)

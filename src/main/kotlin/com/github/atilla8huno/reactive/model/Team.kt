@@ -12,7 +12,7 @@ data class Team(
     @Id val id: Long? = null,
     val name: String,
     @Column("founded_at") val foundedAt: LocalDate? = null,
-    @Transient val players: MutableSet<Player> = mutableSetOf()
+    @Transient var players: MutableSet<Player> = mutableSetOf()
 ) {
     @PersistenceCreator
     constructor(
