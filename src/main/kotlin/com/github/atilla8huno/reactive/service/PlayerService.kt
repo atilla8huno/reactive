@@ -21,7 +21,7 @@ interface PlayerService {
 @Service
 class PlayerServiceImpl(
     @Autowired private val playerProvider: PlayerProvider,
-    private val playerMapper: EntityMapper<Player, PlayerDTO> = PlayerDTO.Companion
+    @Autowired(required = false) private val playerMapper: EntityMapper<Player, PlayerDTO> = PlayerDTO.Companion
 ) : PlayerService {
     override fun createPlayer(request: PlayerDTO): Mono<PlayerDTO> {
         return Mono.just(request)
