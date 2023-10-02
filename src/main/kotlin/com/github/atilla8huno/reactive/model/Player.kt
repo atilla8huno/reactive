@@ -1,16 +1,14 @@
 package com.github.atilla8huno.reactive.model
 
 import org.springframework.data.annotation.Id
-import org.springframework.data.annotation.PersistenceCreator
 import org.springframework.data.annotation.Transient
 import org.springframework.data.relational.core.mapping.Table
 
 @Table("players")
 data class Player(
     @Id val id: Long? = null,
-    val name: String,
-    val number: Int? = null,
-    val email: String? = null,
+    var name: String,
+    var number: Int? = null,
     var teamId: Long? = null
 ) {
     @Transient var team: Team? = null

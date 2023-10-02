@@ -30,8 +30,7 @@ internal class PlayerRepositoryITest {
         // given
         val player = Player(
             name = "Cristiano Ronaldo",
-            number = 7,
-            email = "cr7@realmadrid.com"
+            number = 7
         )
 
         // when
@@ -96,8 +95,7 @@ internal class PlayerRepositoryITest {
         for (i in 0..quantity) {
             val player = Player(
                 name = "Player $i",
-                number = 1 + i,
-                email = "player$i@club.com"
+                number = 1 + i
             ).apply {
                 this.team = team
             }

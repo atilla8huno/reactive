@@ -6,26 +6,26 @@ data class PlayerDTO(
     var id: Long? = null,
     var name: String? = null,
     var number: Int? = null,
-    var email: String? = null,
     var team: TeamDTO? = null
 ) {
-    companion object {
-        fun toEntity(playerDTO: PlayerDTO): Player {
+    companion object : EntityMapper<Player, PlayerDTO> {
+        override fun toEntity(dto: PlayerDTO): Player {
             return Player(
-                id = playerDTO.id,
-                name = playerDTO.name!!,
-                email = playerDTO.email,
-                number = playerDTO.number,
-                teamId = playerDTO.team?.id
-            )
+                id = dto.id,
+                name = dto.name!!,
+                number = dto.number,
+                teamId = dto.team?.id
+            ).apply {
+                team = if (dto.team != null) TeamDTO.toEntity(dto.team!!) else null
+            }
         }
 
-        fun fromEntity(player: Player): PlayerDTO {
+        override fun fromEntity(entity: Player): PlayerDTO {
             return PlayerDTO(
-                id = player.id,
-                name = player.name,
-                email = player.email,
-                number = player.number
+                id = entity.id,
+                name = entity.name,
+                number = entity.number,
+                team = if (entity.team != null) TeamDTO.fromEntity(entity.team!!) else null
             )
         }
     }
