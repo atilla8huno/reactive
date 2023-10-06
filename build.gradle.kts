@@ -35,6 +35,7 @@ dependencies {
     testImplementation("com.ninja-squad:springmockk:4.0.2")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("io.r2dbc:r2dbc-h2:1.0.0.RELEASE")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

@@ -9,8 +9,10 @@ import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories
 import org.springframework.r2dbc.connection.init.CompositeDatabasePopulator
 import org.springframework.r2dbc.connection.init.ConnectionFactoryInitializer
 import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator
+import org.springframework.web.reactive.config.EnableWebFlux
 
 @Configuration
+@EnableWebFlux
 @EnableR2dbcRepositories
 class ReactiveConfiguration {
 

@@ -61,7 +61,7 @@ internal class PlayerRepositoryITest {
             .assertNext { firstPlayer ->
                 assertThat(firstPlayer.id).isNotNull()
             }
-            .expectNextCount(expectedNumberOfPlayers.toLong())
+            .expectNextCount(expectedNumberOfPlayers.toLong() - 1)
             .expectComplete()
             .verify()
     }
@@ -92,7 +92,7 @@ internal class PlayerRepositoryITest {
         ).let {
             teamRepository.save(it).block()
         }
-        for (i in 0..quantity) {
+        for (i in 1..quantity) {
             val player = Player(
                 name = "Player $i",
                 number = 1 + i

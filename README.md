@@ -20,6 +20,7 @@ Test:
 * JUnit: 5.9.3
 * MockK: 1.13.3 (springmockk: 4.0.2)
 * Project Reactor Test: 3.5.10
+* MockWebServer: 4.11.0
 * Test DB Driver (H2): r2dbc-h2: 1.0.0.RELEASE
 
 ### Testing
